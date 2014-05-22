@@ -1,4 +1,4 @@
-ansible-base
+Cassandra ansible configuration
 ============
 
-Base ansible configuration
+The ansible configuration for the ISC testing cluster at Bentley
