@@ -7,7 +7,7 @@
 users:
   - name: Nick Hentschel
     username: nhentschel
-    shell: /bin/bash
+    shell: /usr/bin/fish
     primary_group: users
     add_to_groups: "wheel"
     state: present
