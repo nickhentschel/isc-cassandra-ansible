@@ -19,6 +19,4 @@
     - man
     - man-pages
     - wget
-    - ntp
     - tmux
-    - fish
