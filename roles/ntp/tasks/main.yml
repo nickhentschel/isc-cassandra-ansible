@@ -1,0 +1,13 @@
+---
+# file: roles/ntp/tasks/main.yml
+
+- name: install required packages for CentOS
+  yum: name=ntp state=latest
+  
+- name: copy ntp configuration file
+  template: src=ntp.conf.j2 dest=/etc/ntp.conf
+  notify:
+    - restart ntp
+  
+- name: start/stop ntp service
+  service: name=ntpd state=started enabled=yes pattern="/ntpd"
