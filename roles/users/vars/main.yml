@@ -1,0 +1,15 @@
+---
+# file: roles/users/vars/main.yml
+# Defines a list of users in the system
+
+# groups can be comma separated list
+# add user to wheel group for sudo access
+users:
+  - name: Nick Hentschel
+    username: nhentschel
+    shell: /bin/bash
+    primary_group: users
+    add_to_groups: "wheel"
+    state: present
+    keys:
+      - nhentschel.pub

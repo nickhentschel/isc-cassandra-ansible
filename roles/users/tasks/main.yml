@@ -1,0 +1,12 @@
+---
+# file: roles/users/tasks/main.yml
+
+- name: Create users
+  user: name={{ item.username }} group={{ item.primary_group }} groups={{ item.add_to_groups }} shell={{ item.shell }} state={{ item.state }}
+  with_items: users
+
+- name: Add user public keys
+  authorized_key: "user={{ item.0.username }} key='{{ lookup('file', item.1) }}'"
+  with_subelements:
+    - users
+    - keys

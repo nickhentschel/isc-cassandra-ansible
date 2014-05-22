@@ -1,0 +1,24 @@
+---
+# file: roles/common/tasks/main.yml
+
+- name: Allow wheel to sudo
+  lineinfile: "dest=/etc/sudoers state=present regexp='^%wheel' line='%wheel ALL=(ALL) NOPASSWD: ALL'"
+
+# - name: upgrade all packages
+#   sudo: yes
+#   yum: name=* state=latest
+
+- name: Install basic packages
+  yum: name="{{item}}" state=installed
+  with_items:
+    - openssh-clients
+    - htop
+    - vim
+    - git
+    # - "@Development tools"
+    - man
+    - man-pages
+    - wget
+    - ntp
+    - tmux
+    - fish
