@@ -20,3 +20,8 @@
     - man-pages
     - wget
     - tmux
+    - openmpi
+
+- name: Register openmpi module
+  command: module add openmpi-x86_64
+
