@@ -22,6 +22,8 @@
     - tmux
     - openmpi
 
-- name: Register openmpi module
-  command: module add openmpi-x86_64
+# - name: Register openmpi module
+  # shell: module add openmpi-x86_64
 
+- name: Disable iptables
+  service: name=iptables state=stopped enabled=no

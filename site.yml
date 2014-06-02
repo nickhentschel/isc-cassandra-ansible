@@ -2,9 +2,9 @@
 # file: site.yml
 
 - name: Install and configure basic software and user accounts
-  # hosts: 127.0.0.1
-  # connection: local
-  hosts: all
+  hosts: 127.0.0.1
+  connection: local
+  # hosts: all
   remote_user: root
   gather_facts: yes
 
