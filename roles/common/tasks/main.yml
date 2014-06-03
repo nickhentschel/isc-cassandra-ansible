@@ -27,3 +27,6 @@
 
 - name: Disable iptables
   service: name=iptables state=stopped enabled=no
+
+- name: Copy hosts file
+  copy: src=hosts dest=/etc/hosts
