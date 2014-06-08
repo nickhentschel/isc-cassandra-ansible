@@ -1,6 +1,12 @@
 ---
 # file: roles/common/tasks/main.yml
 
+- name: Copy epel.repo
+  copy: src=epel.repo dest=/etc/yum.repos.d/epel.repo
+
+- name: Copy epel GPG key
+  copy: src=RPM-GPG-KEY-EPEL-6 dest=/etc/pki/rpm-gpg
+
 - name: Allow wheel to sudo
   lineinfile: "dest=/etc/sudoers state=present regexp='^%wheel' line='%wheel ALL=(ALL) NOPASSWD: ALL'"
 
