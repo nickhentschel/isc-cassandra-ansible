@@ -27,9 +27,13 @@
     - wget
     - tmux
     - openmpi
+    - libselinux-python
 
 # - name: Register openmpi module
   # shell: module add openmpi-x86_64
+
+- name: Disable selinux
+  selinux: state=disabled
 
 - name: Disable iptables
   service: name=iptables state=stopped enabled=no
