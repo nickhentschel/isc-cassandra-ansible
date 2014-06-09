@@ -7,9 +7,17 @@
 users:
   - name: Nick Hentschel
     username: nhentschel
-    shell: /usr/bin/fish
+    shell: /bin/bash
     primary_group: users
     add_to_groups: "wheel"
     state: present
     keys:
       - nhentschel.pub
+  - name: Neel Shah
+    username: nshah
+    shell: /bin/bash
+    primary_group: users
+    add_to_groups: "wheel"
+    state: present
+    keys:
+      - nshah.pub
