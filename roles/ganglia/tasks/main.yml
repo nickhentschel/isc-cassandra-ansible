@@ -5,7 +5,7 @@
   file: path=/tmp/rpms state=directory
 
 - name: Copy Ganglia RPMs
-  copy: src="{{ item }}" dest="/tmp/{{ item}}"
+  copy: src="{{ item }}" dest="/tmp/{{ item }}"
   with_items:
     - rpms/libganglia-3.6.0-1.x86_64.rpm
     - rpms/ganglia-gmond-3.6.0-1.x86_64.rpm
