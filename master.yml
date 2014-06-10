@@ -13,3 +13,4 @@
     - ntp
     - gluster
     - ganglia
+    - gmetad
