@@ -27,6 +27,7 @@
     - wget
     - tmux
     - openmpi
+    - "openmpi-devel"
     - libselinux-python
 
 # - name: Register openmpi module

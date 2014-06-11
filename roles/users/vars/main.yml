@@ -21,3 +21,11 @@ users:
     state: present
     keys:
       - nshah.pub
+  - name: Tushar Swamy
+    username: tswamy
+    shell: /bin/bash
+    primary_group: users
+    add_to_groups: "wheel"
+    state: present
+    keys:
+      - tswamy.pub
