@@ -29,3 +29,11 @@ users:
     state: present
     keys:
       - tswamy.pub
+  - name: Nick Materise
+    username: nmaterise
+    shell: /bin/bash
+    primary_group: users
+    add_to_groups: "wheel"
+    state: present
+    keys:
+      - nmaterise.pub
