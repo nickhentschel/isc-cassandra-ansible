@@ -10,8 +10,8 @@
   roles:
     - common
     - users
-    - ntp
-    - gluster
-    - ganglia
-    - gmetad
-    - slurm
+#    - ntp
+#    - gluster
+#    - ganglia
+#    - gmetad
+#    - slurm

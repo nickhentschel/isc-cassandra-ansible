@@ -9,7 +9,7 @@
   roles:
     - common
     - users
-    - ntp
-    - gluster
-    - ganglia
-    - slurm
+#    - ntp
+#    - gluster
+#    - ganglia
+#    - slurm

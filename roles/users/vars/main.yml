@@ -37,3 +37,11 @@ users:
     state: present
     keys:
       - nmaterise.pub
+  - name: Nathan VanBenschoten
+    username: nvanbenschoten
+    shell: /bin/bash
+    primary_group: users
+    add_to_groups: "wheel"
+    state: present
+    keys:
+      - nvanbenschoten.pub

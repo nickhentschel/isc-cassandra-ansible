@@ -1,11 +1,11 @@
 ---
 # file: roles/common/tasks/main.yml
 
-- name: Copy epel.repo
-  copy: src=epel.repo dest=/etc/yum.repos.d/epel.repo
+# - name: Copy epel.repo
+#   copy: src=epel.repo dest=/etc/yum.repos.d/epel.repo
 
-- name: Copy epel GPG key
-  copy: src=RPM-GPG-KEY-EPEL-6 dest=/etc/pki/rpm-gpg
+# - name: Copy epel GPG key
+#   copy: src=RPM-GPG-KEY-EPEL-6 dest=/etc/pki/rpm-gpg
 
 - name: Allow wheel to sudo
   lineinfile: "dest=/etc/sudoers state=present regexp='^%wheel' line='%wheel ALL=(ALL) NOPASSWD: ALL'"
@@ -14,28 +14,28 @@
 #   sudo: yes
 #   yum: name=* state=latest
 
-- name: Install basic packages
-  yum: name="{{item}}" state=installed
-  with_items:
-    - openssh-clients
-    - htop
-    - vim
-    - git
+# - name: Install basic packages
+#  yum: name="{{item}}" state=installed
+#  with_items:
+#    - openssh-clients
+#    - htop
+#    - vim
+#    - git
 #   - "@Development tools"
-    - man
-    - man-pages
-    - wget
-    - tmux
+#    - man
+#    - man-pages
+#    - wget
+#    - tmux
 #    - openmpi
-    - "openmpi-devel"
-    - libselinux-python
-    - munge
+#    - "openmpi-devel"
+#    - libselinux-python
+#    - munge
 
 # - name: Register openmpi module
   # shell: module add openmpi-x86_64
 
-- name: Disable selinux
-  selinux: state=disabled
+#- name: Disable selinux
+#  selinux: state=disabled
 
 # - name: Disable iptables
 #  service: name=iptables state=stopped enabled=no
