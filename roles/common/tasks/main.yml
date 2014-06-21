@@ -21,14 +21,15 @@
     - htop
     - vim
     - git
-    # - "@Development tools"
+#   - "@Development tools"
     - man
     - man-pages
     - wget
     - tmux
-    - openmpi
+#    - openmpi
     - "openmpi-devel"
     - libselinux-python
+    - munge
 
 # - name: Register openmpi module
   # shell: module add openmpi-x86_64
@@ -36,8 +37,8 @@
 - name: Disable selinux
   selinux: state=disabled
 
-- name: Disable iptables
-  service: name=iptables state=stopped enabled=no
+# - name: Disable iptables
+#  service: name=iptables state=stopped enabled=no
 
-- name: Copy hosts file
-  copy: src=hosts dest=/etc/hosts
+# - name: Copy hosts file
+#   copy: src=hosts dest=/etc/hosts

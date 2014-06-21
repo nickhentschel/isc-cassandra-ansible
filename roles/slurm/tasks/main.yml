@@ -1,0 +1,57 @@
+---
+# file: roles/slurm/tasks/main.yml
+
+- name: Create RPM directory
+  file: path=/tmp/rpms state=directory
+
+- name: Copy Slurm RPMs
+  copy: src="{{ item }}" dest="/tmp/{{ item }}"
+  with_items:
+    - rpms/slurm-munge-2.6.3-1.el6.x86_64.rpm
+    - rpms/slurm-2.6.3-1.el6.x86_64.rpm
+    - rpms/slurm-plugins-2.6.3-1.el6.x86_64.rpm
+
+- name: Install Slurm RPMs
+  yum: name="{{ item }}" state=installed
+  with_items:
+      - /tmp/rpms/slurm-2.6.3-1.el6.x86_64.rpm
+      - /tmp/rpms/slurm-munge-2.6.3-1.el6.x86_64.rpm
+      - /tmp/rpms/slurm-plugins-2.6.3-1.el6.x86_64.rpm
+
+- name: create munge user
+  user: name=munge system=yes createhome=no uid=497
+
+- name: create munge group
+  group: name=munge system=yes gid=497
+
+- name: create slurm user
+  user: name=slurm system=yes createhome=no uid=496
+
+- name: create slurm group
+  group: name=slurm system=yes gid=496
+
+- name: Copy munge.key
+  copy: src=munge.key dest=/etc/munge/munge.key
+  notify: restart munge
+
+- name: ensure munge.key permissions
+  file: path=/etc/munge/ state=directory recurse=yes owner=munge group=munge mode=700
+
+- name: ensure munge lib permissions
+  file: path=/var/lib/munge/ state=directory recurse=yes owner=munge group=munge mode=711
+
+- name: ensure munge run file permissions
+  file: path=/var/run/munge/ state=directory recurse=yes owner=munge group=munge mode=755
+
+- name: ensure munge log file permissions
+  file: path=/var/log/munge/munged.log owner=munge group=munge mode=700
+
+- name: Copy slurm.conf
+  copy: src=slurm.conf dest=/etc/slurm/slurm.conf
+  notify: restart slurm
+
+- name: Enable munge
+  service: name=munge state=started enabled=true
+
+- name: Enable Slurm
+  service: name=slurm state=started enabled=true
